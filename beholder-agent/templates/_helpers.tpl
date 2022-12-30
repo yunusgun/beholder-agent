@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "grafana-agent.name" -}}
+{{- define "beholder-agent.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "grafana-agent.fullname" -}}
+{{- define "beholder-agent.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "grafana-agent.chart" -}}
+{{- define "beholder-agent.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "grafana-agent.labels" -}}
-helm.sh/chart: {{ include "grafana-agent.chart" . }}
-{{ include "grafana-agent.selectorLabels" . }}
+{{- define "beholder-agent.labels" -}}
+helm.sh/chart: {{ include "beholder-agent.chart" . }}
+{{ include "beholder-agent.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "grafana-agent.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "grafana-agent.name" . }}
+{{- define "beholder-agent.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "beholder-agent.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "grafana-agent.serviceAccountName" -}}
+{{- define "beholder-agent.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "grafana-agent.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "beholder-agent.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}

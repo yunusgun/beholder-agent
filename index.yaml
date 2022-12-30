@@ -1,9 +1,9 @@
 apiVersion: v1
 entries:
-  grafana-agent:
+  beholder-agent:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-12-29T18:07:38.910609+03:00"
+    created: "2022-12-30T11:41:41.652798+03:00"
     dependencies:
     - condition: prometheus-operator.enabled
       name: kube-prometheus-stack
@@ -14,10 +14,10 @@ entries:
       repository: https://grafana.github.io/helm-charts
       version: 0.2.8
     description: A Helm chart for Kubernetes
-    digest: 96ea0673512a3edf63b0417d68ed2cf15ed1b144a66b02de8bcc2c6001eedb78
-    name: grafana-agent
+    digest: a1281c7e5706dc98dc5d73ca611e6cd4b70907576eb1ec50830e7de7858e7b4e
+    name: beholder-agent
     type: application
     urls:
-    - https://github.com/yunusgun/beholder-agent.git/grafana-agent-0.1.0.tgz
+    - https://github.com/yunusgun/beholder-agent.git/beholder-agent-0.1.0.tgz
     version: 0.1.0
-generated: "2022-12-29T18:07:38.883298+03:00"
+generated: "2022-12-30T11:41:41.625563+03:00"
